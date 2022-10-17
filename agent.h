@@ -283,6 +283,7 @@ typedef std::pair<board,board::reward> target;
 
 #include <stack>
 #include <iostream>
+#include <limits.h>
 
 class ntuple : public weight_agent{
 public:
@@ -319,7 +320,7 @@ public:
 	}
 
 	virtual action take_action(const board& before){
-		double best = -1;
+		double best = INT_MIN;
 		int best_op = -1;
 		board::reward rew;
 		for(int op : op_code){
